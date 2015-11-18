@@ -9,6 +9,7 @@ var requestListener = function(req, res){
     //Passing to res the string "hello world"
     if(req.url.substr(1) !== 'favicon.ico'){
         var location = req.url.substr(1).toLowerCase();
+        //IMPORTANT Here we use an object to store the data. When we dont know the name of the key we use [] instead of the .
             if(!cached[location]){
                 var urlLoc = "https://maps.googleapis.com/maps/api/geocode/json?address="+ encodeURIComponent(location)+"?key=AIzaSyBzCi__81f6T97pDZJDwaatlZOnPpZjo_o";
                 request({url: urlLoc}, function(err, response, body){
